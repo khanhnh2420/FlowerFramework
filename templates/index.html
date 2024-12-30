@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification with Custom Model</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Classification using Custom Model</h1>
+        
+        <!-- Form tải lên mô hình và hình ảnh -->
+        <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+            <label for="model">Upload Model (.pth):</label>
+            <input type="file" name="model" accept=".pth" required><br><br>
+            
+            <label for="file">Upload Image:</label>
+            <input type="file" name="file" accept="image/*" required><br><br>
+            
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        {% if predicted_class is not none %}
+        <div class="result">
+            <h3>Prediction: Class {{ predicted_class }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

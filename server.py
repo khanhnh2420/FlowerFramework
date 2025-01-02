@@ -28,7 +28,7 @@ def start_flower_server():
     model = init_model()
     
     # Cấu hình server
-    server_config = fl.server.ServerConfig(num_rounds=5)  # Đặt số vòng huấn luyện ở đây
+    server_config = fl.server.ServerConfig(num_rounds=3)  # Đặt số vòng huấn luyện ở đây
     num_rounds = server_config.num_rounds  # Lấy số vòng huấn luyện từ cấu hình
 
     # Tạo chiến lược FedAvg với hàm tổng hợp metrics
@@ -44,7 +44,7 @@ def start_flower_server():
     )
 
     # Lưu mô hình sau huấn luyện
-    save_model_callback(model, round_num)
+    save_model_callback(model, num_rounds)
 
 
 if __name__ == "__main__":

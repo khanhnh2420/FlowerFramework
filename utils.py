@@ -13,11 +13,11 @@ def save_model(model, filename="global_model.pth"):
 def load_model(model, filename="global_model.pth"):
     """Tải trọng số mô hình từ tệp."""
     model.load_state_dict(torch.load(filename))
-    model.eval()  # Đặt mô hình ở chế độ đánh giá (nếu bạn đang kiểm tra mô hình)
+    model.eval()  # Đặt mô hình ở chế độ đánh giá
     print(f"Model loaded from {filename}")
     return model
 
-# Hàm lưu toàn bộ mô hình (bao gồm cả kiến trúc và trọng số)
+# Hàm lưu toàn bộ mô hình 
 def save_complete_model(model, subdirectory="models", filename="complete_model.pth"):
     """Lưu toàn bộ mô hình (kiến trúc và trọng số) vào thư mục con trong dự án."""
     # Lấy thư mục hiện tại của dự án
@@ -41,7 +41,7 @@ def save_complete_model(model, subdirectory="models", filename="complete_model.p
 def load_complete_model(filename="complete_model.pth"):
     """Tải toàn bộ mô hình (kiến trúc và trọng số)."""
     model = torch.load(filename)
-    model.eval()  # Đặt mô hình ở chế độ đánh giá (nếu bạn đang kiểm tra mô hình)
+    model.eval()  # Đặt mô hình ở chế độ đánh giá
     print(f"Complete model loaded from {filename}")
     return model
 

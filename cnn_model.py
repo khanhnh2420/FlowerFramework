@@ -25,15 +25,3 @@ class CNNModel(nn.Module):
         x = torch.relu(self.fc1(x))
         x = self.fc2(x)
         return x
-
-# Tạo đối tượng mô hình
-model = CNNModel()
-
-# Tải dữ liệu CIFAR-10
-transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
-testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
-
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True)
-testloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)

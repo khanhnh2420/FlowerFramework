@@ -28,7 +28,7 @@ class FlowerClient(fl.client.NumPyClient):
     def fit(self, parameters, config):
         set_parameters(net, parameters)
         print("Starting training...")
-        train(net, trainloader, epochs=10)
+        train(net, trainloader, epochs=2)
         print("Training completed.")
         return self.get_parameters(config), len(trainloader.dataset), {}
 

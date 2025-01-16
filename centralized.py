@@ -17,7 +17,6 @@ def load_data(batch_size=32, dataset='CIFAR10'):
     Returns:
         trainloader, testloader: DataLoader cho huấn luyện và kiểm tra.
     """
-
     # Các phép biến đổi cho dữ liệu đầu vào
     transform = transforms.Compose([
         transforms.ToTensor(),
